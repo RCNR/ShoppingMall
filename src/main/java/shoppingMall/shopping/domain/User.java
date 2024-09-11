@@ -20,14 +20,12 @@ public class User {
 
     private String name;
     private String email;
+    private String address;
 
     @Column(unique = true) // 전화번호 중복X
     private String phone;
 
     private LocalDateTime createDate; // 가입날짜
-
-    @OneToMany(mappedBy = "user")
-    private List<Orders> orders = new ArrayList<>();
 
 
 }
