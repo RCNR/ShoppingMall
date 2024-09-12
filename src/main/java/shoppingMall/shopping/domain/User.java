@@ -1,6 +1,7 @@
 package shoppingMall.shopping.domain;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,5 +28,10 @@ public class User {
 
     private LocalDateTime createDate; // 가입날짜
 
-
+    @Builder
+    public User(String name, String email, String address) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+    }
 }
