@@ -1,17 +1,14 @@
 package shoppingMall.shopping.domain;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access =  AccessLevel.PROTECTED)
 public class User {
 
     @Id
@@ -29,9 +26,10 @@ public class User {
     private LocalDateTime createDate; // 가입날짜
 
     @Builder
-    public User(String name, String email, String address) {
+    public User(String name, String email, String address, String phone) {
         this.name = name;
         this.email = email;
         this.address = address;
+        this.phone = phone;
     }
 }
