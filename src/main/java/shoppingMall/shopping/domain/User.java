@@ -32,4 +32,11 @@ public class User {
         this.address = address;
         this.phone = phone;
     }
+
+    public void update(String name, String email, String address, String phone) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+    }
 }
