@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserService {
 
     private final UserRepository userRepository;
@@ -29,7 +30,6 @@ public class UserService {
     }
 
     // 회원 조회
-    @Transactional(readOnly = true)
     public User findByName(Long userId) {
         Optional<User> user = userRepository.findById(userId);
         return user.orElseThrow(() -> new IllegalArgumentException(userId + "를 가진 회원은 없습니다."));
@@ -41,7 +41,6 @@ public class UserService {
     }
 
     // 회원 업데이트(수정)
-    @Transactional
     public User update(Long userId, UpdateUserRequest request) {
         User updateUser = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException(userId + "를 가진 회원은 없습니다. 따라서 삭제할 수 없습니다."));
@@ -49,7 +48,4 @@ public class UserService {
         updateUser.update(request.getName(), request.getEmail(), request.getAddress(), request.getPhone());
         return updateUser;
     }
-
-
-
 }
