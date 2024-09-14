@@ -44,7 +44,10 @@ public class CartService {
 
         // 유저 장바구니에 아이템 추가
         Item newItem = new Item();
-        userCart.set*/
+        userCart.set
+
+        ERD -> User - Cart 일대일, CartItem 엔티티 필요
+        */
 
         return null;
     }
