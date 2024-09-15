@@ -16,6 +16,9 @@ public class User {
     @Column(name = "user_id")
     private Long id;
 
+    @OneToOne(mappedBy = "user")
+    private Cart cart;
+
     private String name;
     private String email;
     private String address;
