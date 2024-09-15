@@ -22,8 +22,7 @@ public class CartService {
     private final CartRepository cartRepository;
     private final UserRepository userRepository;
 
-    // 추가
-    public Long addCart(Long userId, Long itemId) {
+    public Cart findCart(Long userId, Long itemId) {
 
         /**
          * 엔티티 조회 - 유저, 아이템
@@ -34,22 +33,14 @@ public class CartService {
         // 아이템
         Item item = itemRepository.findById(itemId).orElseThrow(() -> new RuntimeException("없는 아이템입니다."));
 
-        /*// 유저 장바구니 찾기
+        // 유저 장바구니 찾기 - 없으면 생성
         Cart userCart = cartRepository.findById(userId).orElseGet(() -> {
             // 없을시 새로 생성
             Cart newCart = new Cart();
             newCart.setId(userId);
             return newCart;
         });
-
-        // 유저 장바구니에 아이템 추가
-        Item newItem = new Item();
-        userCart.set
-
-        ERD -> User - Cart 일대일, CartItem 엔티티 필요
-        */
-
-        return null;
+        return userCart;
     }
 
 }
