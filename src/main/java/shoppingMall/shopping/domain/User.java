@@ -19,8 +19,13 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Cart cart;
 
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "address")
     private String address;
 
     @Column(unique = true) // 전화번호 중복X
